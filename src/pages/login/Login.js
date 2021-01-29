@@ -4,27 +4,31 @@ import { ErrorMessage, Form, Formik, Field } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
 import { history } from '../../history'
-
 import './Login.css';
 
 const Login = () => {
 
-    const handleSubmit = values => {
-        axios.post('http://localhost:8080/v1/api/auth', values)
+    const handleSubmit = async values => {
+        await axios.post('http://localhost:3333/login', values)
             .then(resp => {
                 const { data } = resp;
                 if (data) {
                     localStorage.setItem('app-token', data);
-                    history.post('/')
+                    history.push('/')
                 }
-            })
+            }).catch(err=>console.log("Error: ",err))
     };
-
 
     const validations = yup.object().shape({
         email: yup.string().email().required(),
         password: yup.string().min(6).required()
     })
+
+    const handleLinkCadastro = ()=>{
+        
+        //  history.push("/cadastrar");
+    }
+
     return (
         <>
             <h1>Login</h1>
@@ -44,6 +48,7 @@ const Login = () => {
 
                     <br /><hr />
                     <button className="login-btn" type="submit">Login</button>
+                    <label className='login-cadastrar'><a href="/cadastrar">Cadastrar</a></label>
                 </Form>
             </Formik>
         </>

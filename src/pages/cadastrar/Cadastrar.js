@@ -9,14 +9,15 @@ import '../login/Login.css'
 
 const Cadastro = () => {
 
-    const handleSubmit = values => {
-        axios.post('http://localhost:8080/v1/api/auth', values)
+    const handleSubmit = async values => {
+        await axios.post('http://localhost:3333/cadastrar', values)
             .then(resp => {
                 const { data } = resp;
                 if (data) {
-                    history.post('/login')
+                    localStorage.setItem('app-token', data);
+                    history.push('/login')
                 }
-            })
+            }).catch(err=>console.log("Error: ",err))
     };
 
 
@@ -57,6 +58,7 @@ const Cadastro = () => {
                     <br />
                     <hr />
                     <button className="login-btn" type="submit">Cadastrar</button>
+                    <label className='login-cadastrar'><a href="/login">Logar</a></label>
                 </Form>
             </Formik>
         </>

@@ -17,6 +17,7 @@
 .login-field:focus {
     box-shadow: 0 4px 4px rgba(0, 0, 0, .5);
     outline: none;
+    background: #0000000d;
 }
 
 ::-webkit-input-placeholder {
@@ -53,5 +54,13 @@
 .login-group{
 }
 
-legend{
+.login-cadastrar,
+.login-cadastrar{
+    cursor: pointer;
+    margin-left: 7rem;
+}
+
+a{
+    text-decoration: none;
+    color: snow;
 }
