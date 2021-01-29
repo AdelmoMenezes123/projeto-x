@@ -7,6 +7,7 @@
     color: #fdfdfd;
     margin-top: 1rem;
     padding: 1rem;
+    gap: 10px;
     font-size: 1.2rem;
     border-radius: 7px;
     width: 100%;
@@ -18,22 +19,39 @@
     outline: none;
 }
 
+::-webkit-input-placeholder {
+    color: #ccc;
+    font-size: medium;
+ }
+
+ :-ms-input-placeholder {  
+    color: #ccc;
+    font-size: medium;  
+ }
+
 .login-error {
     color: #ff8080;
 }
 
 .login-btn {
     background-color: #00cc99;
-    color: #fdfdfd;
-    padding: .5rem 2rem;
+    color: #55419d;
+    padding: 1.5rem 2rem;
     border: none;
     border-radius: 5px;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .login-btn:hover{
     cursor: pointer;
+    background-color: #00cc85;
 }
 
 .login-group{
+}
+
+legend{
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Switch, Route } from 'react-router';
 
 import Login from '../pages/login';
-import Registro from '../pages/registro';
+import Cadastrar from '../pages/cadastrar';
 import Home from '../pages/home';
 
 import NotFaund from './NotFaund'
@@ -14,7 +14,7 @@ const Routes = () => (
     <Router history={history}>
         <Switch>
             <Route component={Login} exact path="/login" />
-            <Route component={Registro} exact path="/registro" />
+            <Route component={Cadastrar} exact path="/cadastrar" />
             <PrivateRoute component={Home} exact path="/" />
             <PrivateRoute component={NotFaund} />
         </Switch>
