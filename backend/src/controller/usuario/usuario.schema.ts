@@ -1,4 +1,4 @@
-import {Schema, model, Document} from 'mongoose';
+import { Schema, model, Document } from 'mongoose';
 
 const UsuarioSchema = new Schema({
     nome: { type: String, required: true },
@@ -7,7 +7,7 @@ const UsuarioSchema = new Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
     createAt: { type: Date },
-    updateAt: { type: Date},
+    updateAt: { type: Date },
 });
 
 

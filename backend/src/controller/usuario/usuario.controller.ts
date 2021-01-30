@@ -1,8 +1,9 @@
-import { Request, Response } from "express";
+import { json, Request, Response } from "express";
 import usuarioModel from './usuario.model'
 import Usuario from './usuario.interface';
 
 import bcrypt from 'bcrypt';
+import UsuarioSchema from "./usuario.schema";
 
 class UsuarioController {
 
@@ -46,7 +47,17 @@ class UsuarioController {
             return res.status(400).send({ message: ' Senha incorreta!' });
         }
 
-        return res.json(usuario);
+        return res.json({
+            usuario,
+            token: usuario.gerarToken(),
+        });
+    }
+
+    public async listagem(req: Request, res: Response): Promise<Response> {
+
+        const usuario = await usuarioModel.find()
+        
+        return res.send(usuario)
     }
 }
 
