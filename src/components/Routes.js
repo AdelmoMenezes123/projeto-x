@@ -14,7 +14,7 @@ const Routes = () => (
     <Router history={history}>
         <Switch>
             <Route component={Login} exact path="/login" />
-            <Route component={Cadastrar} exact path="/cadastrar" />
+            <Route component={Cadastrar} exact path="/usuarios/cadastro" />
             <Route component={Home} exact path="/" />
             <Route component={NotFaund} />
         </Switch>

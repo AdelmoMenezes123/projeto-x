@@ -1,27 +1,15 @@
-import * as mongoose from 'mongoose';
-import Usuario from './usuario.interface';
-import bcrypt from 'bcrypt';
+import {Schema, model, Document} from 'mongoose';
 
-const UsuarioSchema = new mongoose.Schema({
+const UsuarioSchema = new Schema({
     nome: { type: String, required: true },
     cpf: { type: String, required: true },
     avatar: { type: String, required: false },
     email: { type: String, required: true },
     password: { type: String, required: true },
-    createAt: { type: Date, default: Date.now },
-    updateAt: { type: Date, default: Date.now }
+    createAt: { type: Date },
+    updateAt: { type: Date},
 });
 
-UsuarioSchema.pre<Usuario>('save', async function criptografaSenha() {
-    this.password = await bcrypt.hash(this.password, 8);
-});
-
-UsuarioSchema.pre<Usuario>('save', async function gerarAvatar() {
-    // const randomId = Math.floor(Math.random() *(1000000)) + 1;
-
-    // this.avatar = `https://api.adorable.io/avatars/285/${randomId}.png`
-    this.avatar = `https://ui-avatars.com/api/?rounded=true&name=${this.nome}`
-});
 
 export default UsuarioSchema;
 

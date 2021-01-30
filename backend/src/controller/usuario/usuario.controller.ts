@@ -1,18 +1,52 @@
-import {Request, Response} from "express";
+import { Request, Response } from "express";
 import usuarioModel from './usuario.model'
 import Usuario from './usuario.interface';
 
-class UsuarioController{
-    public async cadastrar(req: Request, resp: Response): Promise<Response>{
-        const usuario: Usuario = await usuarioModel.create(req.body);
-        const resposta = {
-            message: 'Usuario cadastrado com sucesso!',
-            nome: usuario.nome,
-            password: usuario.password,
-            avatar: usuario.avatar
-        };
+import bcrypt from 'bcrypt';
+
+class UsuarioController {
+
+    //CADASTRAR USUARIO
+    public async cadastrar(req: Request, resp: Response): Promise<Response> {
+
+        const userModel: Usuario = req.body;
+        userModel.createAt = new Date();
+
+        const usuario = new usuarioModel(userModel);
+
+        let resposta = {};
+
+        await usuario.save()
+            .then(cadastrado => {
+                resposta = {
+                    message: 'Usuario cadastrado com sucesso!',
+                    nome: cadastrado.nome,
+                    password: cadastrado.password,
+                    avatar: cadastrado.avatar
+                };
+            })
 
         return resp.json(resposta);
+    }
+
+    //AUTENTICACAO DE USUARIO LOGIN
+    public async autenticar(req: Request, res: Response): Promise<Response> {
+        const { email, password } = req.body;
+
+        const usuario = await usuarioModel.findOne({ email });
+        console.log("usuario ", usuario)
+
+        if (!usuario) {
+            return res.status(400).send({ message: ' Usuario não encontrado' });
+        };
+
+        const passwordInvalido = await bcrypt.compare(password, usuario.password);
+        // usuario.compareSenha(password);
+        if (!passwordInvalido) {
+            return res.status(400).send({ message: ' Senha incorreta!' });
+        }
+
+        return res.json(usuario);
     }
 }
 

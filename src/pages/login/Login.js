@@ -9,25 +9,21 @@ import './Login.css';
 const Login = () => {
 
     const handleSubmit = async values => {
-        await axios.post('http://localhost:3333/login', values)
-            .then(resp => {
+        axios.post('http://localhost:9000/usuarios/login',
+
+            values).then(resp => {
                 const { data } = resp;
                 if (data) {
                     localStorage.setItem('app-token', data);
-                    history.push('/')
+                    history.push('/login')
                 }
-            }).catch(err=>console.log("Error: ",err))
+            }).catch(err => console.log("Error: ", err))
     };
 
     const validations = yup.object().shape({
         email: yup.string().email().required(),
         password: yup.string().min(6).required()
     })
-
-    const handleLinkCadastro = ()=>{
-        
-        //  history.push("/cadastrar");
-    }
 
     return (
         <>
@@ -48,7 +44,7 @@ const Login = () => {
 
                     <br /><hr />
                     <button className="login-btn" type="submit">Login</button>
-                    <label className='login-cadastrar'><a href="/cadastrar">Cadastrar</a></label>
+                    <label className='login-cadastrar'><a href="/usuarios/cadastro">Cadastrar</a></label>
                 </Form>
             </Formik>
         </>

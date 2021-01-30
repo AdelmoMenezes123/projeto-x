@@ -9,15 +9,17 @@ import '../login/Login.css'
 
 const Cadastro = () => {
 
-    const handleSubmit = async values => {
-        await axios.post('http://localhost:3333/cadastrar', values)
-            .then(resp => {
+    const handleSubmit = values => {
+
+        axios.post('http://localhost:9000/usuarios/cadastro', 
+        
+        values).then(resp => {
                 const { data } = resp;
                 if (data) {
                     localStorage.setItem('app-token', data);
                     history.push('/login')
                 }
-            }).catch(err=>console.log("Error: ",err))
+            }).catch(err => console.log("Error: ", err))
     };
 
 
