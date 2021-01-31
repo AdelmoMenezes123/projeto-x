@@ -57,10 +57,18 @@
 .login-cadastrar,
 .login-cadastrar{
     cursor: pointer;
-    margin-left: 7rem;
+    margin-left: 1rem;
 }
 
 a{
     text-decoration: none;
     color: snow;
+}
+
+.table{
+    vertical-align: middle;
+}
+
+#fechar{
+    display: none;
 }

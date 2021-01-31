@@ -31,7 +31,7 @@ const Cadastro = () => {
     });
 
     return (
-        <>
+        <div className="container col-md-5 col-lg-4">
             <h1>Cadastro</h1>
             <p>Preencha os campos para criar um novo usuario</p>
 
@@ -63,7 +63,7 @@ const Cadastro = () => {
                     <label className='login-cadastrar'><a href="/login">Logar</a></label>
                 </Form>
             </Formik>
-        </>
+        </div>
     );
 }
 export default Cadastro;

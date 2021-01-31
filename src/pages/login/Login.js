@@ -26,7 +26,7 @@ const Login = () => {
     })
 
     return (
-        <>
+        <div className="container col-md-5 col-lg-4">
             <h1>Login</h1>
             <p>Preencha os campos para continuar</p>
 
@@ -47,7 +47,7 @@ const Login = () => {
                     <label className='login-cadastrar'><a href="/usuarios/cadastro">Cadastrar</a></label>
                 </Form>
             </Formik>
-        </>
+        </div>
     );
 }
 
