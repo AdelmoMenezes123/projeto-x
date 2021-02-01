@@ -69,6 +69,12 @@ a{
     vertical-align: middle;
 }
 
+.tbl{
+    display: flex;
+    height: 67vh;
+    align-items: center;
+}
+
 #fechar{
     display: none;
 }

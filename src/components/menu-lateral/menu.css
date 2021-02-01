@@ -4,10 +4,62 @@ aside{
     position: fixed;
     left: 0;
     top: 0;
-    background-color: #663399d9;
+    background-color: #482268;
     
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
+}
+
+.perfil-section{
+    font-size: 2rem !important;
+}
+
+#perfil{
+    background-color: #444;
+    width: 100%;
+    text-align: center;
+    margin-top: 6rem;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#perfil div{
+    margin: 6px 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: inherit;
+}
+
+#perfil .img{
+    background-color:#999;
+    height: 60px;
+    width: 60px;
+    border-radius: 31px;
+    align-self: center;
+}
+
+.img img{
+    width: 100%;
+}
+
+#perfil .linha{
+    width: 100%;
+    background: #999;
+    height: 5px;
+}
+
+/* ------------------------------------------------- */
+
+.bairro-section{
+    font-size: 3rem !important;
+}
+
+#links div{
+    font-size: 1.6rem;
+    margin: 1rem;
+    cursor: pointer;
 }

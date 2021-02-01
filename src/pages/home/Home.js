@@ -22,7 +22,7 @@ class Home extends Component {
             <>
                 <Header />
 
-                <div className="container table-responsive col-lg-6 col-md-6">
+                <div className="container table-responsive col-lg-6 col-md-6 tbl">
                     <table id="table" className="table">
                         <thead className="table-dark">
                             <tr>

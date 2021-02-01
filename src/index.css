@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-*{
+* {
     box-sizing: border-box;
 }
 
 body {
-    background-color: #7156c1;
-    font-family:  "Space Mono", monospace;
+    /* #7156c1 */
+    background: linear-gradient(145deg, #3d155ff0 40%, purple 100%);
+    font-family: "Space Mono", monospace;
     color: #FDFDFD;
 }
