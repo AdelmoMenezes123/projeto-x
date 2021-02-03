@@ -3,7 +3,6 @@ import usuarioModel from './usuario.model'
 import Usuario from './usuario.interface';
 
 import bcrypt from 'bcrypt';
-import UsuarioSchema from "./usuario.schema";
 
 class UsuarioController {
 
@@ -35,7 +34,6 @@ class UsuarioController {
         const { email, password } = req.body;
 
         const usuario = await usuarioModel.findOne({ email });
-        console.log("usuario ", usuario)
 
         if (!usuario) {
             return res.status(400).send({ message: ' Usuario não encontrado' });
@@ -53,12 +51,14 @@ class UsuarioController {
         });
     }
 
+    // LISTAGEM DE USUARIOS
     public async listagem(req: Request, res: Response): Promise<Response> {
 
         const usuario = await usuarioModel.find()
-        
+
         return res.send(usuario)
     }
+
 }
 
 export default new UsuarioController();
