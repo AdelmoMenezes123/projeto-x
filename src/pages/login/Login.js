@@ -33,16 +33,17 @@ const Login = () => {
             <Formik initialValues={{}} onSubmit={handleSubmit} validationSchema={validations}>
                 <Form className="login">
                     <div className="login-group">
-                        <Field name="email" placeholder="E-MAIL" className="login-field" />
+                        <Field id="email-login" name="email" placeholder="E-MAIL" className="login-field" />
                         <ErrorMessage component="span" name="email" className="login-error" />
                     </div>
 
                     <div className="login-group">
-                        <Field name="password" placeholder="SENHA" className="login-field" />
+                        <Field id="password-login" name="password" placeholder="SENHA" className="login-field" />
                         <ErrorMessage component="span" name="password" className="login-error" />
                     </div>
 
                     <br /><hr />
+                    <input id="tkon" type="hidden" name="token" value="" />
                     <button className="login-btn" type="submit">Login</button>
                     <label className='login-cadastrar'><a href="/usuarios/cadastro">Cadastrar</a></label>
                 </Form>

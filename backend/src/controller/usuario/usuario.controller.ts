@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import { json, Request, Response } from "express";
 import usuarioModel from './usuario.model'
 import Usuario from './usuario.interface';
@@ -27,15 +28,26 @@ class UsuarioController {
                 };
             })
 
-        return resp.json(resposta);
+            const decodedToken = {
+                _id: String(usuario._id),
+                nome: usuario.nome,
+                avatar: usuario.avatar,
+            };
+    
+            const token = jwt.sign(decodedToken, 'SECRET', {
+                subject: usuario._id,
+                expiresIn: '1d',
+            })
+
+        return resp.json({resposta, token});
     }
 
     //AUTENTICACAO DE USUARIO LOGIN
     public async autenticar(req: Request, res: Response): Promise<Response> {
         const { email, password } = req.body;
 
+
         const usuario = await usuarioModel.findOne({ email });
-        console.log("usuario ", usuario)
 
         if (!usuario) {
             return res.status(400).send({ message: ' Usuario não encontrado' });
@@ -47,17 +59,30 @@ class UsuarioController {
             return res.status(400).send({ message: ' Senha incorreta!' });
         }
 
+        const decodedToken = {
+            _id: String(usuario._id),
+            nome: usuario.nome,
+            avatar: usuario.avatar,
+        };
+
+        const token = jwt.sign(decodedToken, 'SECRET', {
+            subject: usuario.id,
+            expiresIn: '1d',
+        })
+
         return res.json({
             usuario,
-            token: usuario.gerarToken(),
+            token
         });
     }
 
     public async listagem(req: Request, res: Response): Promise<Response> {
 
         const usuario = await usuarioModel.find()
-        
-        return res.send(usuario)
+
+        return res.send({
+            usuario
+        })
     }
 }
 

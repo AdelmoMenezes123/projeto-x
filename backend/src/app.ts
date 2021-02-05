@@ -31,14 +31,15 @@ export class App {
     }
 
     private database(): void {
-        mongoose.connect('mongodb+srv://adelmo:adelmo6995@cluster0.kshdg.mongodb.net/<dbname>?retryWrites=true&w=majority',
+        // mongoose.connect('mongodb+srv://adelmo:adelmo6995@cluster0.kshdg.mongodb.net/<dbname>?retryWrites=true&w=majority',
+        mongoose.connect('mongodb://localhost/db_name',
             {
                 useUnifiedTopology: true,
                 useNewUrlParser: true,
             });
     }
 
-    private routes(): void{
-        this.express.use('/usuarios',usuarioRouter)
+    private routes(): void {
+        this.express.use('/usuarios', usuarioRouter)
     }
 }

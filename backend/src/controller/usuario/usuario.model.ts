@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 
 interface UsuarioModel extends Usuario, Document {
     compareSenha(password: string): Promise<boolean>
-    gerarToken(): string;
+    // gerarToken(): string;
 }
 
 
@@ -15,9 +15,6 @@ UsuarioSchema.pre<UsuarioModel>('save', async function criptografaSenha() {
 });
 
 UsuarioSchema.pre<UsuarioModel>('save', async function gerarAvatar() {
-    // const randomId = Math.floor(Math.random() *(1000000)) + 1;
-    // this.avatar = `https://api.adorable.io/avatars/285/${randomId}.png`
-
     this.avatar = `https://ui-avatars.com/api/?rounded=true&name=${this.nome}`
 });
 
@@ -25,18 +22,19 @@ UsuarioSchema.pre<UsuarioModel>('save', async function gerarAvatar() {
 //     return bcrypt.compare(password, this.password);
 // }
 
-UsuarioSchema.methods.gerarToken = function (): string {
+// UsuarioSchema.methods.gerarToken = function (): string {
 
-    const decodedToken = {
-        _id: String(this._id),
-        nome: this.nome,
-        avatar: this.avatar,
-    };
+    // const decodedToken = {
+    //     _id: String(this._id),
+    //     nome: this.nome,
+    //     avatar: this.avatar,
+    // };
 
-    return jwt.sign(decodedToken, 'SECRET', {
-        expiresIn: '1d',
-    })
-}
+    // return jwt.sign(decodedToken, 'SECRET', {
+    //     expiresIn: '1d',
+    //     subject: Usuario._id
+    // })
+// }
 
 
 export default model<UsuarioModel>('Usuario', UsuarioSchema);
