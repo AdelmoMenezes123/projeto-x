@@ -4,7 +4,6 @@ import usuarioModel from './usuario.model'
 import Usuario from './usuario.interface';
 
 import bcrypt from 'bcrypt';
-import UsuarioSchema from "./usuario.schema";
 
 class UsuarioController {
 
@@ -76,6 +75,7 @@ class UsuarioController {
         });
     }
 
+    // LISTAGEM DE USUARIOS
     public async listagem(req: Request, res: Response): Promise<Response> {
 
         const usuario = await usuarioModel.find()
@@ -83,7 +83,9 @@ class UsuarioController {
         return res.send({
             usuario
         })
+
     }
+
 }
 
 export default new UsuarioController();

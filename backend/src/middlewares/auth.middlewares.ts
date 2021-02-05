@@ -1,8 +1,8 @@
-import { Schema } from 'mongoose';
+// import { Schema } from 'mongoose';
 import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from "express";
-import usuarioModel from '../controller/usuario/usuario.model';
-import Usuario from '../controller/usuario/usuario.interface';
+// import usuarioModel from '../controller/usuario/usuario.model';
+// import Usuario from '../controller/usuario/usuario.interface';
 
 
 class AuthMiddlewares {
@@ -51,6 +51,5 @@ class AuthMiddlewares {
 
   //next() // pass the execution off to whatever request the client intended
   //})
-
 
 export default new AuthMiddlewares();

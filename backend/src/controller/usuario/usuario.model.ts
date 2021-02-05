@@ -15,14 +15,15 @@ UsuarioSchema.pre<UsuarioModel>('save', async function criptografaSenha() {
 });
 
 UsuarioSchema.pre<UsuarioModel>('save', async function gerarAvatar() {
-    this.avatar = `https://ui-avatars.com/api/?rounded=true&name=${this.nome}`
+    this.avatar = await `https://ui-avatars.com/api/?rounded=true&name=${this.nome}`;
 });
 
-// UsuarioSchema.methods.compararSenhas = function(password: string): Promise<boolean> {
-//     return bcrypt.compare(password, this.password);
-// }
+// UsuarioSchema.method("compararSenhas", function(this: UsuarioModel, ...args: any[]){
+//     return bcrypt.compare(args[0], this.password); 
+// });
 
-// UsuarioSchema.methods.gerarToken = function (): string {
+
+// UsuarioSchema.methods.gerarToken = function (this: Usuario): string {
 
     // const decodedToken = {
     //     _id: String(this._id),

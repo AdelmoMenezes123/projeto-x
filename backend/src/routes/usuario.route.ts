@@ -11,7 +11,7 @@ usuarioRouter.post('/login', UsuarioController.autenticar);
 usuarioRouter.get('/',
      authMiddlewares.autorizarUsuarioByToken,
      usuarioController.listagem
-)
+);
 
 
 export default usuarioRouter;
