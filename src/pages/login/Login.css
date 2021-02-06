@@ -35,8 +35,10 @@
 }
 
 .login-btn {
-    background-color: #00cc99;
-    color: #55419d;
+    background-color: #12e298; 
+    /* #00cc99; */
+    color: #111; 
+    /* #55419d; */
     padding: 1.5rem 2rem;
     border: none;
     border-radius: 5px;
@@ -48,7 +50,8 @@
 
 .login-btn:hover{
     cursor: pointer;
-    background-color: #00cc85;
+    background-color: #12e278;
+    /* #00cc85; */
 }
 
 .login-group{
@@ -71,7 +74,7 @@ a{
 
 .tbl{
     display: flex;
-    height: 67vh;
+    height: 72vh;
     align-items: center;
 }
 

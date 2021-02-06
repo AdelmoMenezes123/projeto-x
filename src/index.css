@@ -4,9 +4,14 @@
     box-sizing: border-box;
 }
 
+a:hover {
+    color: inherit;
+}
+
 body {
-    /* #7156c1 */
-    background: linear-gradient(145deg, #3d155ff0 40%, purple 100%);
+    /* #9900FA*/
+    /* #03A9F4; */
+    background:#6495ed; 
     font-family: "Space Mono", monospace;
     color: #FDFDFD;
 }

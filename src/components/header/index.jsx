@@ -11,7 +11,6 @@ const Header = () => {
                     <i id="abrir" className="fa fa-bars"></i>
                     <i id="fechar" className="fa fa-close"></i>
                 </div>
-                <div className="logo"><h1>Projeto X</h1></div>
             </header>
         </>
     )

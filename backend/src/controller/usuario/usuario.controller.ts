@@ -87,6 +87,15 @@ class UsuarioController {
 
     }
 
+    public async getUser(req: Request, res: Response): Promise<Response> {
+        const {id} = req.params
+        
+        const usuario = await usuarioModel.findById(id)
+        return res.send({
+            usuario
+        })
+    }
+
 }
 
 export default new UsuarioController();

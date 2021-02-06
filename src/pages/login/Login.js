@@ -19,6 +19,10 @@ class Login extends Component {
                 const { data } = resp;
                 if (data) {
                     localStorage.setItem('Bearer', data.token);
+                    const {usuario} = data;
+                    const{_id} = usuario
+                    console.log(_id)
+                    localStorage.setItem('id', _id);
                     history.push('/usuarios/')
                 }
             }).catch(err => console.log("Error: ", err))

@@ -3,40 +3,34 @@ import Header from '../../components/header'
 // import api from '../../services/api';
 import axios from 'axios'
 class Home extends Component {
-constructor(props){
-    super(props)
-    this.componentDidMount = this.componentDidMount.bind(this);
-    this.state = {
-        usuarios: [],
+    constructor(props) {
+        super(props)
+        this.componentDidMount = this.componentDidMount.bind(this);
+        this.state = {
+            usuarios: [],
+        }
     }
-}
-    
-
-
 
     async componentDidMount() {
-
         var token = await localStorage.getItem('Bearer');
-  
-        axios.get('http://localhost:9000/usuarios/',{
-            headers:{
+
+        axios.get('http://localhost:9000/usuarios/', {
+            headers: {
                 Authorization: `Bearer ${token}`,
                 'X-Request-ID': new Date().getTime().toString(),
             }
         }).then(resp => {
             const { data } = resp;
-            const {usuario} = data;
-            // console.log(usuario)
+            const { usuario } = data;
             if (data) {
-                // localStorage.getItem('Bearer', data);
-                this.setState({ usuarios: usuario})
+                this.setState({ usuarios: usuario })
             }
         }).catch(err => console.log("Error: ", err))
     }
 
     render() {
 
-         const { usuarios } = this.state;
+        const { usuarios } = this.state;
 
         return (
             <>
