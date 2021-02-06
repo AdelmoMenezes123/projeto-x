@@ -13,10 +13,10 @@ import { history } from '../history';
 const Routes = () => (
     <Router history={history}>
         <Switch>
-            <Route component={Login} exact path="/usuarios/login/" />
-            <Route component={Cadastrar} exact path="/usuarios/cadastro/" />
-            <PrivateRoute component={Home} exact path="/usuarios/" />
-            <PrivateRoute component={NotFaund} />
+            <Route component={Login} exact path="/login" />
+            <Route component={Cadastrar} exact path="/cadastro" />
+            <PrivateRoute component={Home} exact path="/" />
+            <PrivateRoute component={NotFaund} exact />
         </Switch>
     </Router>
 )

@@ -31,7 +31,6 @@ class Menu extends Component {
 
     render() {
         const { usuario } = this.state;
-        console.log(usuario)
         return (
             <aside>
                 <section id="perfil" className="container-fluid mb-4">
