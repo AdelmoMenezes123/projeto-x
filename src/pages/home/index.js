@@ -14,7 +14,7 @@ class Home extends Component {
     async componentDidMount() {
         var token = await localStorage.getItem('Bearer');
 
-        axios.get('http://localhost:9000/usuarios/', {
+        axios.get('https://backend-projetox.herokuapp.com/usuarios/', {
             headers: {
                 Authorization: `Bearer ${token}`,
                 'X-Request-ID': new Date().getTime().toString(),

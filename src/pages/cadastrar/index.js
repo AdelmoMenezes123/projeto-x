@@ -11,7 +11,7 @@ const Cadastro = () => {
 
     const handleSubmit = values => {
 
-        axios.post('http://localhost:9000/usuarios/cadastro', 
+        axios.post('https://backend-projetox.herokuapp.com/usuarios/cadastro', 
         
         values).then(resp => {
                 const { data } = resp;

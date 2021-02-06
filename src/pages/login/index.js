@@ -13,7 +13,7 @@ class Login extends Component {
     };
     
     handleSubmit = async values => {
-        axios.post('http://localhost:9000/usuarios/login',
+        axios.post('https://backend-projetox.herokuapp.com/usuarios/login',
 
             values,this.config).then(resp => {
                 const { data } = resp;

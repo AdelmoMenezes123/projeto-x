@@ -15,7 +15,7 @@ class Menu extends Component {
         var token = await localStorage.getItem('Bearer');
         var id = await localStorage.getItem('id');
 
-        axios.get(`http://localhost:9000/usuarios/${id}`, {
+        axios.get(`https://backend-projetox.herokuapp.com/usuarios/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 'X-Request-ID': new Date().getTime().toString(),
