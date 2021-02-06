@@ -4,7 +4,7 @@ import { Router, Switch, Route } from 'react-router';
 import Login from '../pages/login';
 import Cadastrar from '../pages/cadastrar';
 import Home from '../pages/home';
-
+import PrivateRoute from '../components/PrivateRoute'
 import NotFaund from './NotFaund'
 import { history } from '../history';
 
@@ -13,10 +13,10 @@ import { history } from '../history';
 const Routes = () => (
     <Router history={history}>
         <Switch>
-            <Route component={Login} exact path="/usuarios/login" />
-            <Route component={Cadastrar} exact path="/usuarios/cadastro" />
-            <Route component={Home} exact path="/usuarios/" />
-            <Route component={NotFaund} />
+            <Route component={Login} exact path="/usuarios/login/" />
+            <Route component={Cadastrar} exact path="/usuarios/cadastro/" />
+            <PrivateRoute component={Home} exact path="/usuarios/" />
+            <PrivateRoute component={NotFaund} />
         </Switch>
     </Router>
 )

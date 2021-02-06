@@ -1,22 +1,42 @@
 import React, { Component } from 'react';
 import Header from '../../components/header'
-import api from '../../services/api';
-
+// import api from '../../services/api';
+import axios from 'axios'
 class Home extends Component {
-
-    state = {
+constructor(props){
+    super(props)
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.state = {
         usuarios: [],
     }
+}
+    
+
+
 
     async componentDidMount() {
-        const response = await api.get('/usuarios/')
-        this.setState({ usuarios: response.data })
+
+        var token = await localStorage.getItem('Bearer');
+  
+        axios.get('http://localhost:9000/usuarios/',{
+            headers:{
+                Authorization: `Bearer ${token}`,
+                'X-Request-ID': new Date().getTime().toString(),
+            }
+        }).then(resp => {
+            const { data } = resp;
+            const {usuario} = data;
+            // console.log(usuario)
+            if (data) {
+                // localStorage.getItem('Bearer', data);
+                this.setState({ usuarios: usuario})
+            }
+        }).catch(err => console.log("Error: ", err))
     }
 
     render() {
 
-        const { usuarios } = this.state;
-        console.log(usuarios)
+         const { usuarios } = this.state;
 
         return (
             <>
@@ -34,8 +54,8 @@ class Home extends Component {
                         <tbody className="table-light">
                             {
                                 usuarios.map(dados => (
-                                    <tr>
-                                        <td> <img src={dados.avatar}></img></td>
+                                    <tr key={dados._id}>
+                                        <td> <img src={dados.avatar} alt="foto do perfil"></img></td>
                                         <td>{dados.nome}</td>
                                         <td>{dados.email}</td>
                                     </tr>

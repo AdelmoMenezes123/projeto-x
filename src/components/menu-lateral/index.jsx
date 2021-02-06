@@ -7,7 +7,7 @@ const Menu = () => {
         <aside className="container">
             <section id="perfil" className="container mb-4">
                 <div className="perfil-section">PERFIL</div>
-                <div className="img"><img src="https://ui-avatars.com/api/?rounded=true&name=adelmo"></img></div>
+                <div className="img"><img src="https://ui-avatars.com/api/?rounded=true&name=adelmo" alt="foto do perfil"></img></div>
                 <div className="linha"></div>
                 <div className="nome">Adelmo Menezes</div>
                 <div className="email">adelmo@gmail.com</div>

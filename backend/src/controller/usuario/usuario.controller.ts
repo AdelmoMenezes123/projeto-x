@@ -16,29 +16,31 @@ class UsuarioController {
         const usuario = new usuarioModel(userModel);
 
         let resposta = {};
-
+        var decodedToken = {};
+        var token = {};
         await usuario.save()
-            .then(cadastrado => {
+            .then(async cadastrado => {
+                 decodedToken = {
+                    _id: String(cadastrado.id),
+                    nome: cadastrado.nome,
+                    avatar: cadastrado.avatar,
+                };
+        
+                 token = await  jwt.sign(decodedToken, 'SECRET', {
+                    subject: cadastrado.id,
+                    expiresIn: '1d',
+                })
                 resposta = {
                     message: 'Usuario cadastrado com sucesso!',
                     nome: cadastrado.nome,
                     password: cadastrado.password,
                     avatar: cadastrado.avatar
                 };
+                
             })
 
-            const decodedToken = {
-                _id: String(usuario._id),
-                nome: usuario.nome,
-                avatar: usuario.avatar,
-            };
-    
-            const token = jwt.sign(decodedToken, 'SECRET', {
-                subject: usuario._id,
-                expiresIn: '1d',
-            })
 
-        return resp.json({resposta, token});
+        return resp.json({ resposta, token });
     }
 
     //AUTENTICACAO DE USUARIO LOGIN
@@ -79,7 +81,6 @@ class UsuarioController {
     public async listagem(req: Request, res: Response): Promise<Response> {
 
         const usuario = await usuarioModel.find()
-
         return res.send({
             usuario
         })

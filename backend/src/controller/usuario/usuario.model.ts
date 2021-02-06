@@ -2,7 +2,6 @@ import { model, Document } from 'mongoose';
 import Usuario from './usuario.interface';
 import UsuarioSchema from './usuario.schema';
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 
 interface UsuarioModel extends Usuario, Document {
     compareSenha(password: string): Promise<boolean>

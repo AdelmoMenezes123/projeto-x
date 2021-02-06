@@ -60,7 +60,7 @@ const Cadastro = () => {
                     <br />
                     <hr />
                     <button className="login-btn" type="submit">Cadastrar</button>
-                    <label className='login-cadastrar'><a href="/login">Logar</a></label>
+                    <label className='login-cadastrar'><a href="/usuarios/login">Logar</a></label>
                 </Form>
             </Formik>
         </div>
