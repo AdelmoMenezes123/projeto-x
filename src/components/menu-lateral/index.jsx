@@ -36,7 +36,7 @@ class Menu extends Component {
             <aside>
                 <section id="perfil" className="container-fluid mb-4">
                     <div className="perfil-section">PERFIL</div>
-                    <div className="img"><img src={usuario.avatar} alt="foto do perfil"></img></div>
+                    <div className="img"><img src={usuario.avatar} alt="foto"></img></div>
                     <div className="nome">{usuario.nome}</div>
                     <div className="linha"></div>
                 </section>
