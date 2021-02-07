@@ -50,7 +50,6 @@ class Login extends Component {
                         </div>
 
                         <br /><hr />
-                        <input id="tkon" type="hidden" name="token" value="" />
                         <button className="login-btn" type="submit">Login</button>
                         <label className='login-cadastrar'><a href="/cadastro">Cadastrar</a></label>
                     </Form>

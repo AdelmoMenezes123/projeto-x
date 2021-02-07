@@ -15,3 +15,11 @@ body {
     font-family: "Space Mono", monospace;
     color: #FDFDFD;
 }
+
+#acao button{
+    margin-right: 4px;
+}
+
+.limit-tabela{
+    height: 60vh;
+}

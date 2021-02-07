@@ -73,9 +73,7 @@ a{
 }
 
 .tbl{
-    display: flex;
-    height: 72vh;
-    align-items: center;
+    height: 70vh;
 }
 
 #fechar{

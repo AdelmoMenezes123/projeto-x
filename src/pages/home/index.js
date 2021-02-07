@@ -36,27 +36,35 @@ class Home extends Component {
             <>
                 <Header />
 
-                <div className="container table-responsive col-lg-6 col-md-6 tbl">
-                    <table id="table" className="table">
-                        <thead className="table-dark">
-                            <tr>
-                                <th scope="col">Foto</th>
-                                <th scope="col">Nome</th>
-                                <th scope="col">E-mail</th>
-                            </tr>
-                        </thead>
-                        <tbody className="table-light">
-                            {
-                                usuarios.map(dados => (
-                                    <tr key={dados._id}>
-                                        <td> <img src={dados.avatar} alt="foto do perfil"></img></td>
-                                        <td>{dados.nome}</td>
-                                        <td>{dados.email}</td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table>
+                <div className="limit-tabela">
+                    <div className="container-fluid table-responsive col-lg-6 tbl">
+                        <table id="table" className="table">
+                            <thead className="table-dark">
+                                <tr>
+                                    <th scope="col">Foto</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody className="table-light">
+                                {
+                                    usuarios.map(dados => (
+                                        <tr key={dados._id}>
+                                            <td> <img src={dados.avatar} alt="foto do perfil"></img></td>
+                                            <td>{dados.nome}</td>
+                                            <td>{dados.email}</td>
+                                            <td id="acao">
+                                                <button className="btn btn-warning" title="Visualizar"><i className="fas fa-search"></i></button>
+                                                <button className="btn btn-primary" title="Editar"><i className="far fa-edit"></i></button>
+                                                <button className="btn btn-danger" title="Deletar" ><i className="far fa-trash-alt"></i></button>
+                                            </td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </>
         )
